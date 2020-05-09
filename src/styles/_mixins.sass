@@ -1,0 +1,79 @@
+@import 'var'
+
+=absoluteTL($top, $left)
+  position: absolute
+  top: $top
+  left: $left
+=absoluteTR($top, $right)
+  position: absolute
+  top: $top
+  right: $right
+=absoluteBL($bottom, $left)
+  position: absolute
+  bottom: $bottom
+  left: $left
+=absoluteBR($bottom, $right)
+  position: absolute
+  bottom: $bottom
+  right: $right
+=marginTR($top, $right)
+  margin-top: $top
+  margin-right: $right
+=marginTB($top, $bottom)
+  margin-top: $top
+  margin-bottom: $bottom
+=marginTL($top, $left)
+  margin-top: $top
+  margin-left: $left
+=marginRB($right, $bottom)
+  margin-right: $right
+  margin-bottom: $bottom
+=marginRL($right, $left)
+  margin-right: $right
+  margin-left: $left
+=marginBL($bottom, $left)
+  margin-bottom: $bottom
+  margin-left: $left
+=marginTRB($top, $right, $bottom)
+  +marginTR($top, $right)
+  margin-bottom: $bottom
+=marginTLB($top, $left, $bottom)
+  +marginTL($top, $left)
+  margin-bottom: $bottom
+=marginTRL($top, $right, $left)
+  +marginTR($top, $right)
+  margin-left: $left
+=marginBRL($bottom, $right, $left)
+  +marginRB($bottom, $right)
+  margin-left: $left
+=paddingTB($top, $bottom)
+  padding-top: $top
+  padding-bottom: $bottom
+=paddingRL($right, $left)
+  padding-right: $right
+  padding-left: $left
+=paddingTRL($top, $right, $left)
+  padding-top: $top
+  +paddingRL($right, $left)
+=paddingBRL($bottom, $right, $left)
+  +paddingRL($right, $left)
+  padding-bottom: $bottom
+=shadow-medium()
+  box-shadow: 0 1px 3px 0 $clrShadow
+=shadow-large()
+  box-shadow: 0 2px 5px 0 $clrShadow
+=shadow-press()
+  box-shadow: 0 0 1px 0 $clrShadow
+=textCSW($color, $size, $weight)
+  color: $color
+  font-size: $size
+  font-weight: $weight
+=textCSWH($color, $size, $weight, $height)
+  +textCSW($color, $size, $weight)
+  line-height: $height
+=textCSWT($color, $size, $weight, $transform)
+  +textCSW($color, $size, $weight)
+  text-transform: $transform
+=textCSWHT($color, $size, $weight, $height, $transform)
+  +textCSWH($color, $size, $weight, $height)
+  text-transform: $transform

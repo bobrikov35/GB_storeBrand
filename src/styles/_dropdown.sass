@@ -1,0 +1,67 @@
+@import 'var', 'mixins'
+
+.dropdown
+  z-index: 1
+  background-color: $clrBackground
+  border-radius: 5px
+  +shadow-medium
+  display: none
+  position: absolute
+  padding: 12px 16px
+  &__triangle
+    transform: rotate(45deg)
+    width: 11px
+    height: 11px
+    background-color: $clrBackground
+    position: absolute
+    top: -4px
+    left: 67px
+    &_shadow
+      width: 7px
+      height: 7px
+      background-color: $clrBackground
+      box-shadow: 0 0 3px 0 $clrShadow
+      top: -4px
+      left: 69px
+  &__content
+    width: 236px
+    margin-right: 32px
+    &:last-of-type
+      margin-right: 0
+  &__break
+    display: block
+    margin-bottom: 16px
+  &__title
+    +textCSWHT($clrText, 14px, 400, 32px, uppercase)
+    border-bottom: 1px solid $clrBorder
+    margin-bottom: 8px
+  &__link
+    +textCSWH($clrTextDrop, 14px, 300, 28px)
+    &:hover
+      text-decoration: underline
+    &:active
+      color: $clrBrand2
+      filter: saturate(85%)
+  &__offer
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    margin-top: 8px
+    margin-left: -12px
+    margin-bottom: 8px
+    &:hover
+      filter: brightness(50%)
+    &:hover > img
+      transform: scale(1.03, 1.03)
+    &:active
+      filter: brightness(75%)
+    & img
+      transition: linear 0.3s
+      width: 284px
+    &_text
+      pointer-events: none
+      max-width: 76px
+      +textCSWHT(white, 22px, 900, 28px, uppercase)
+      +absoluteBR(8px, 10px)

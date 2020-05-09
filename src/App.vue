@@ -1,32 +1,60 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<!--    <Header/>-->
+<!--    <Menu/>-->
+<!--    <router-view/>-->
+<!--    <Feedback/>-->
+<!--    <Footer/>-->
+<!--    <Copyright/>-->
+<!--    <ChoiceSize/>-->
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// import Header from '@/components/Header.vue';
+// import Menu from '@/components/Menu.vue';
+// import Feedback from '@/components/footer/Feedback.vue';
+// import Footer from '@/components/footer/Footer.vue';
+// import Copyright from '@/components/footer/Copyright.vue';
+// import ChoiceSize from '@/components/popup/ChoiceSize.vue';
+export default {
+  name: 'App',
+  // components: {
+  // Header,
+  // Menu,
+  // Feedback,
+  // Footer,
+  // Copyright,
+  // ChoiceSize,
+  // },
+};
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="sass">
+@import './styles/var', './styles/mixins', './styles/dropdown'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  &:active
+    outline: none
+  &:focus
+    outline: none
+body
+  user-select: none
+  font-family: 'Lato', sans-serif
+  +textCSW($clrText, 14px, 400)
+  letter-spacing: 0.03em
+a
+  text-decoration: none
+ul, li
+  list-style-type: none
+details > summary
+  list-style: none
+summary::-webkit-details-marker
+  display: none
+button, input
+  border: none
+  background: none
 </style>
