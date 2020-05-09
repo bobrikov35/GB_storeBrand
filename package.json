@@ -1,6 +1,6 @@
 {
   "name": "brand",
-  "version": "0.1.0",
+  "version": "0.77.0955",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
