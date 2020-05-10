@@ -1,11 +1,11 @@
 <template>
   <div class="product">
     <router-link :to="{name: 'Single', params: {id: vProduct.id}}" class="product__link">
-      <img class="product__image" :src="imageUrl(vProduct)" alt="product">
+      <img class="product__image" :src="imageUrl()" alt="product">
       <div class="product__description">
         <h2 class="product__title">{{ vProduct.title }}</h2>
         <p class="product__rating">
-          <span v-for="(n, i) of [1,2,3,4,5]" :key="i">
+          <span v-for="n in 5" :key="n">
             <i v-if="vProduct.rating >= n" class="fa fa-star" ></i>
             <i v-else-if="vProduct.rating >= (n - 0.5)" class="fa fa-star-half-o"></i>
             <i v-else class="fa fa-star-o"></i>
@@ -16,7 +16,7 @@
       </div>
     </router-link>
     <div class="product__delete">
-      <button class="product__remove" @click="removeFromCart(vProduct)"><i class="fa fa-times-circle"></i></button>
+      <button class="product__remove" @click="removeFromCart"><i class="fa fa-times-circle"></i></button>
     </div>
   </div>
 </template>
@@ -31,13 +31,13 @@ export default {
     vProduct: { required: true },
   },
   methods: {
-    removeFromCart(product) {
-      const newProduct = JSON.parse(JSON.stringify(product));
+    removeFromCart() {
+      const newProduct = JSON.parse(JSON.stringify(this.vProduct));
       newProduct.data.quantity = 1;
       this.remove(newProduct);
     },
-    imageUrl(product) {
-      return Getters.getMainImageUrl(product);
+    imageUrl() {
+      return Getters.getMainImageUrl(this.vProduct);
     },
     ...mapActions({
       remove: 'cart/remove',

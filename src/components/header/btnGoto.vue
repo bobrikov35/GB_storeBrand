@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'btnCheckout',
+  name: 'btnGoto',
   props: {
     vTitle: { default: 'Кнопка' },
     vAwesome: { default: 'none' },

@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="vClass" type="button">
+  <button class="button" :class="vClass" type="button" @click="vClick">
     <i class="fa fa_left" :class="vAwesome" v-if="vIcon === 'left' && vAwesome !== 'none'"/>
     {{ vTitle }}
     <i class="fa fa_right" :class="vAwesome" v-if="vIcon === 'right' && vAwesome !== 'none'"/>
@@ -8,12 +8,18 @@
 
 <script>
 export default {
-  name: 'btnAccount',
+  name: 'btnAddToCart',
   props: {
+    vClick: { type: Function, requared: true },
     vTitle: { default: 'Кнопка' },
     vAwesome: { default: 'none' },
     vIcon: { default: 'none' },
     vClass: { default: '' },
+  },
+  methods: {
+    gotoProduct() {
+      this.$router.push({ path: '/cart' });
+    },
   },
 };
 </script>
@@ -27,9 +33,9 @@ button
 
 .button
   cursor: pointer
-  height: 38px
-  +textCSW(white, 15px, 400)
-  background-color: $clrBrand
+  height: 48px
+  +textCSW($OuterSpace, 16px, 700)
+  border: 1px solid $Platinum
   border-radius: 3px
   display: flex
   justify-content: center
@@ -37,9 +43,11 @@ button
   padding: 11px 16px
   margin: 0 auto
   &:hover
-    filter: saturate(115%)
+    background-color: $Platinum + #070707
+    border: none
   &:active
-    filter: saturate(85%)
+    background-color: $Platinum - #070707
+    border: none
   .fa
     &_right
       margin-left: 14px

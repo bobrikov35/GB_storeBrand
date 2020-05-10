@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'btnAccount',
+  name: 'btnShowAll',
   props: {
     vTitle: { default: 'Кнопка' },
     vAwesome: { default: 'none' },
@@ -27,15 +27,15 @@ button
 
 .button
   cursor: pointer
-  height: 38px
-  +textCSW(white, 15px, 400)
-  background-color: $clrBrand
+  height: 48px
+  +textCSW(white, 16px, 700)
+  background-color: $clrBrand2
   border-radius: 3px
   display: flex
   justify-content: center
   align-items: center
-  padding: 11px 16px
-  margin: 0 auto
+  padding: 0 24px
+  margin-top: 56px
   &:hover
     filter: saturate(115%)
   &:active

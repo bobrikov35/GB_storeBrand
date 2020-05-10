@@ -6,7 +6,7 @@
     <Feedback/>
     <Footer/>
     <Copyright/>
-<!--    <ChoiceSize/>-->
+    <ChoiceSize/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import Menu from '@/components/Menu.vue';
 import Feedback from '@/components/footer/Feedback.vue';
 import Footer from '@/components/footer/Footer.vue';
 import Copyright from '@/components/footer/Copyright.vue';
-// import ChoiceSize from '@/components/popup/ChoiceSize.vue';
+import ChoiceSize from '@/components/popup/ChoiceSize.vue';
 
 export default {
   name: 'App',
@@ -26,7 +26,7 @@ export default {
     Feedback,
     Footer,
     Copyright,
-    // ChoiceSize,
+    ChoiceSize,
   },
 };
 </script>
