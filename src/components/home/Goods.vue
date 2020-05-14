@@ -55,7 +55,7 @@ export default {
     text-align: center
     margin-bottom: 10px
   &__direction
-    color: $Manatee
+    +textCSW($Manatee, 14px, 400)
     text-align: center
   &__catalog
     width: $siteWidth

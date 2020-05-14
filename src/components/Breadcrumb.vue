@@ -4,7 +4,7 @@
       <h2 class="breadcrumb__title">Новые поступления</h2>
       <ul class="breadcrumb__menu">
         <li><router-link to="/" class="breadcrumb__link">Главная</router-link></li>
-        <li><router-link to="#" class="breadcrumb__link">Каталог</router-link></li>
+        <li><router-link :to="vLink" class="breadcrumb__link">{{ vTitle }}</router-link></li>
         <li><router-link to="#" class="breadcrumb__link">Новые поступления</router-link></li>
       </ul>
     </div>
@@ -14,6 +14,10 @@
 <script>
 export default {
   name: 'Breadcrumb',
+  props: {
+    vLink: { default: '#' },
+    vTitle: { default: 'Каталог' },
+  },
 };
 </script>
 

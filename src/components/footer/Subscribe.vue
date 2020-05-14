@@ -82,7 +82,7 @@ button, input
   &__input
     width: 280px
     height: 48px
-    color: $clrText
+    +textCSW($clrText, 14px, 400)
     background-color: $Gainsboro
     border: none
     border-radius: 22px 0 0 22px
@@ -95,7 +95,7 @@ button, input
     cursor: pointer
     width: 106px
     height: 48px
-    color: white
+    +textCSW(white, 14px, 400)
     background-color: $clrBrand2
     border-radius: 0 22px 22px 0
     &_enabled

@@ -35,6 +35,7 @@ export default {
 @import './styles/var', './styles/mixins', './styles/dropdown'
 
 *
+  letter-spacing: 0.03em
   box-sizing: border-box
   padding: 0
   margin: 0
@@ -46,19 +47,10 @@ export default {
 body
   user-select: none
   font-family: 'Lato', sans-serif
-  +textCSW($clrText, 14px, 400)
-  letter-spacing: 0.03em
 
 a
   text-decoration: none
 
 ul, li
   list-style-type: none
-// details > summary
-  list-style: none
-// summary::-webkit-details-marker
-  display: none
-// button, input
-  border: none
-  background: none
 </style>

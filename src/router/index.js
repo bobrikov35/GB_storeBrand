@@ -15,12 +15,12 @@ const routes = [
   //   name: 'Cart',
   //   component: () => import('@/views/Cart.vue'),
   // },
-  // {
-  //   path: '/catalog/:page',
-  //   name: 'Catalog',
-  //   props: true,
-  //   component: () => import('@/views/Catalog.vue'),
-  // },
+  {
+    path: '/catalog/:page',
+    name: 'Catalog',
+    props: true,
+    component: () => import('@/views/Catalog.vue'),
+  },
   // {
   //   path: '/single/:id',
   //   name: 'Single',

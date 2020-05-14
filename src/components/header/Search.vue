@@ -30,7 +30,6 @@ input::-moz-placeholder,
 input:-ms-input-placeholder
   color: $clrPlaceholder
 
-$width: 280px
 $height: 38px
 
 .search
@@ -38,7 +37,7 @@ $height: 38px
   display: flex
   align-items: center
   &__field
-    width: $width
+    width: 280px
     height: $height
     border-top: 1px solid $clrBorder
     border-bottom: 1px solid $clrBorder
@@ -47,7 +46,7 @@ $height: 38px
     cursor: pointer
     width: $height
     height: $height
-    color: $DarkGray
+    +textCSW($DarkGray, 14px, 400)
     background-image: linear-gradient(180deg, white 0%, $WhiteSmoke 100%)
     border: 1px solid $clrBorder
     border-radius: 0 3px 3px 0

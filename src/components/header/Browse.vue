@@ -30,7 +30,7 @@ export default {
           list: [
             { name: 'clothes', title: 'Одежда', link: '#' },
             { name: 'shoes', title: 'Обувь', link: '#' },
-          ]
+          ],
         },
         {
           name: 'men',
@@ -81,13 +81,14 @@ summary::-webkit-details-marker
     display: flex
   &[open] > .browse__summary .fa
     transform: rotateZ(-180deg)
-    color: $clrBrand2
+    color: $clrBrand
     margin-top: 0
   &[open] > .browse__summary:active .fa
     transform: rotateZ(-90deg)
   &__summary
     cursor: pointer
     height: 38px
+    +textCSW($clrText, 14px, 400)
     background-image: linear-gradient(180deg, white 0%, $WhiteSmoke 100%)
     border: 1px solid $clrBorder
     border-radius: 3px 0 0 3px
@@ -100,7 +101,7 @@ summary::-webkit-details-marker
     &:active > .fa
       transform: rotateZ(-90deg)
     & .fa
-      color: $DarkGray
+      +textCSW($DarkGray, 14px, 400)
       +marginTL(2px, 10px)
   &__dropdown
     top: 48px
