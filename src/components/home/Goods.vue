@@ -5,7 +5,7 @@
       <p class="featured__direction">Покупайте товары на основе наших рекомендаций</p>
     </header>
     <div class="featured__catalog">
-      <Product v-for="product of catalog" :key="product.id" :vProduct="product" :vAddition="true"/>
+      <Product v-for="product of catalog" :key="product.id" :vProduct="product" :vAddition="false"/>
     </div>
     <footer class="featured__footer">
       <btnShowAll vTitle="Показать все товары" vIcon="right" vAwesome="fa-long-arrow-right"/>

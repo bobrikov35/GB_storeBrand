@@ -54,7 +54,8 @@ export default {
     goto() {
       if (this.clickOn) {
         this.clickOn = false;
-        this.$router.push({ name: 'Single', params: { id: this.vProduct.id } });
+        const path = `/single/${this.vProduct.id}`;
+        if (this.$route.path !== path) this.$router.push(path);
       }
     },
     mouseEnter() {

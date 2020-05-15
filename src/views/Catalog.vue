@@ -4,7 +4,7 @@
     <section class="catalog">
       <div class="catalog__container">
         <Sidebar/>
-        <div class="catalog__content">
+        <div>
           <Filtering/>
           <Settings/>
           <Goods/>

@@ -29,6 +29,7 @@ const product = {
         .then((data) => {
           commit('SET_RESPONSE', true);
           commit('SET_DATA', data);
+          commit('SET_CURRENT_PRODUCT', 0);
         })
         .catch((err) => {
           commit('SET_RESPONSE', false);
@@ -61,6 +62,7 @@ const product = {
     isEmpty: (state) => state.list.length === 0,
     getList: (state) => state.list,
     getProduct: (state) => state.list[state.curProduct],
+    choiceColor: (state) => state.list.length > 1,
   },
 };
 

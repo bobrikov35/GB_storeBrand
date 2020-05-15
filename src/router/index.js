@@ -10,22 +10,22 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  // {
-  //   path: '/cart',
-  //   name: 'Cart',
-  //   component: () => import('@/views/Cart.vue'),
-  // },
   {
     path: '/catalog/:page',
     name: 'Catalog',
     props: true,
     component: () => import('@/views/Catalog.vue'),
   },
+  {
+    path: '/single/:id',
+    name: 'Single',
+    props: true,
+    component: () => import('@/views/Single.vue'),
+  },
   // {
-  //   path: '/single/:id',
-  //   name: 'Single',
-  //   props: true,
-  //   component: () => import('@/views/Single.vue'),
+  //   path: '/cart',
+  //   name: 'Cart',
+  //   component: () => import('@/views/Cart.vue'),
   // },
 ];
 

@@ -1,7 +1,7 @@
 <template>
   <section class="catalog" v-show="!isEmpty">
     <div class="catalog__content">
-      <Product v-for="(el, i) of catalog" :key="el.id" :vProduct="el" :Addition="false"
+      <Product v-for="(el, i) of catalog" :key="el.id" :vProduct="el"
                v-show="page === 0 || (i + 1 > (page - 1) * quantity && i + 1 <= page * quantity)"/>
     </div>
     <footer class="catalog__footer">
@@ -50,8 +50,10 @@ export default {
   background-color: $clrBackground
   &__content
     width: $siteWidth - 290px
+    min-height: 1384px
     display: grid
     grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: repeat(3, 1fr)
     grid-gap: 32px
     margin: 48px auto
   &__footer

@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div class="pagination" :class="{ pagination_hide: pages === 0 }">
     <button class="pagination__btn" type="button" @click="prevPage">
       <i class="fa fa-chevron-left"/>
     </button>
@@ -63,6 +63,8 @@ button
   display: flex
   justify-content: center
   align-items: center
+  &_hide
+    opacity: 0
   &__btn
     cursor: pointer
     height: inherit

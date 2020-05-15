@@ -44,6 +44,9 @@ export default {
         this.$set(newProduct, 'data', newData);
         this.add(newProduct);
         this.hide();
+      } else {
+        this.setMessage('<p>Перед добавлением товара в корзину необходимо обязательно выбрать размер</p>');
+        this.showMessage();
       }
     },
     check(event) {
@@ -56,6 +59,8 @@ export default {
       add: 'cart/add',
       setSize: 'setPopupSize',
       hide: 'hidePopupSize',
+      showMessage: 'showPopupMessage',
+      setMessage: 'setPopupMessage',
     }),
   },
   computed: {
@@ -118,7 +123,7 @@ button
       background-color: $clrBrand2
       filter: saturate(85%)
     & .fa
-      margin-top: -1px
+      +marginTL(-2px, 1px)
   &__title
     size: 24px
   &__radio-block

@@ -3,8 +3,8 @@
        :class="{ 'svg-small': vSize === 'small',
                  'svg-medium': vSize === 'medium',
                  'svg-main-theme': vType === 'main',
-                 'svg-clrBrand': vType === 'brand',
-                 'svg-clrWhite': vType === 'white'}"
+                 'svg-clr-brand': vType === 'brand',
+                 'svg-clr-white': vType === 'white'}"
        version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0"
        width="32px" height="29px" viewBox="-1 -1 34 31" xml:space="preserve">
     <path d="M31.899,7.565 L26.493,19.977 C26.296,20.410 25.882,20.686 25.409,20.686 L10.554,20.686 C10.021,20.686
@@ -54,8 +54,8 @@ export default {
     &:active
       stroke: none
       fill: $clrBrand2
-  &-clrBrand
+  &-clr-brand
     fill: $clrBrand2
-  &-clrWhite
+  &-clr-white
     fill: white
 </style>

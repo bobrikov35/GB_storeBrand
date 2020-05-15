@@ -16,11 +16,6 @@ export default {
     vIcon: { default: 'none' },
     vClass: { default: '' },
   },
-  methods: {
-    gotoProduct() {
-      this.$router.push({ path: '/cart' });
-    },
-  },
 };
 </script>
 

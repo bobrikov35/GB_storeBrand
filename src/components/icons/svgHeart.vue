@@ -1,7 +1,7 @@
 <template>
   <svg class="svg-std"
-       :class="{ 'svg-clrBrand': vType === 'brand',
-                 'svg-clrWhite': vType === 'white' }"
+       :class="{ 'svg-clr-brand': vType === 'brand',
+                 'svg-clr-white': vType === 'white' }"
        version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23px"
        height="22px">
     <path d="M11.500,18.500 C11.349,18.500 11.206,18.437 11.103,18.326 L4.708,11.411 C4.707,11.409 4.705,11.407 4.704,
@@ -37,8 +37,8 @@ export default {
     width: 23px
     height: 22px
     fill: $clrText
-  &-clrBrand
+  &-clr-brand
     fill: $clrBrand2
-  &-clrWhite
+  &-clr-white
     fill: white
 </style>

@@ -7,6 +7,7 @@
     <Footer/>
     <Copyright/>
     <ChoiceSize/>
+    <Message/>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import Feedback from '@/components/footer/Feedback.vue';
 import Footer from '@/components/footer/Footer.vue';
 import Copyright from '@/components/footer/Copyright.vue';
 import ChoiceSize from '@/components/popup/ChoiceSize.vue';
+import Message from '@/components/popup/Message.vue';
 
 export default {
   name: 'App',
@@ -27,6 +29,7 @@ export default {
     Footer,
     Copyright,
     ChoiceSize,
+    Message,
   },
 };
 </script>
