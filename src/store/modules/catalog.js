@@ -9,6 +9,7 @@ const catalog = {
       sortBy: 'title asc',
     },
     config: {
+      search: [],
       categories: undefined,
       brands: undefined,
       colors: undefined,
@@ -55,6 +56,9 @@ const catalog = {
     },
     SET_VIEW_SORTBY(state, value) {
       state.view.sortBy = value;
+    },
+    SET_CONFIG_SEARCH(state, list) {
+      state.config.search = [...list];
     },
     SET_CONFIG_CATEGORIES(state, data) {
       const newData = [];
@@ -158,6 +162,9 @@ const catalog = {
           console.log(err);
         });
     },
+    setConfigSearch({ commit }, list) {
+      commit('SET_CONFIG_SEARCH', list);
+    },
     switchConfig({ commit }, params) {
       switch (params.name) {
         case 'categories':
@@ -237,6 +244,30 @@ const catalog = {
           return filterCatalog.sort((A, B) => A.title.localeCompare(B.title));
       }
     },
+    getQuery: (state) => {
+      const categories = [];
+      if (state.config.categories) {
+        state.config.categories.forEach((el) => {
+          for (let i = 0; i < el.categories.length; i++) {
+            if (el.categories[i].flag) categories.push(el.type + el.categories[i].title);
+          }
+        });
+      }
+      const brands = [];
+      if (state.config.brands) {
+        state.config.brands.forEach((el) => { if (el.flag) brands.push(el.title); });
+      }
+      const colors = [];
+      if (state.config.colors) {
+        state.config.colors.forEach((el) => { if (el.flag) colors.push(el.value); });
+      }
+      let q = '';
+      if (state.config.search.length > 0) q += `filter=${JSON.stringify(state.config.search)}`;
+      if (categories.length > 0) q += `&categories=${JSON.stringify(categories)}`;
+      if (brands.length > 0) q += `&brands=${JSON.stringify(brands)}`;
+      if (colors.length > 0) q += `&colors=${JSON.stringify(colors)}`;
+      return q;
+    },
     getConfigCategories: (state) => state.config.categories,
     isEmptyConfigBrands: (state) => !state.config.brands || state.config.brands.length === 0,
     isFlaggedConfigBrands: (state) => {
@@ -282,6 +313,7 @@ const catalog = {
     getPage: (state) => state.view.page,
     getQuantity: (state) => state.view.quantity,
     getSortBy: (state) => state.view.sortBy,
+    getSearchList: (state) => state.config.search,
   },
 };
 

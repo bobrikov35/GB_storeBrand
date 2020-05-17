@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import Slider from '@/components/home/Slider.vue';
 import Categories from '@/components/home/Categories.vue';
 import Goods from '@/components/home/Goods.vue';
@@ -20,6 +21,20 @@ export default {
     Categories,
     Goods,
     Feature,
+  },
+  methods: {
+    ...mapActions({
+      setSearch: 'catalog/setConfigSearch',
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      getQuery: 'catalog/getQuery',
+    }),
+  },
+  mounted() {
+    document.querySelector('.search__field').value = '';
+    this.setSearch([]);
   },
 };
 </script>

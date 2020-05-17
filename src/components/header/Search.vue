@@ -1,17 +1,43 @@
 <template>
-  <form class="search" action="#">
-    <input type="text" class="search__field" placeholder="Поиск товара..." v-model="field">
-    <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
+  <form class="search" action="#" @submit.prevent="submit">
+    <input type="text" class="search__field" placeholder="Поиск товара..." v-model="field" @input="input">
+    <button class="search__button" type="submit"><i class="fa fa-search"></i></button>
   </form>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'Search',
   data() {
     return {
       field: '',
     };
+  },
+  methods: {
+    input() {
+      const list = this.field.match(/([-а-яё\w])+/ig);
+      this.setSearch(list !== null ? list : []);
+    },
+    submit() {
+      if (!this.$route.params.page) {
+        this.$router.push('/catalog/all');
+      } else if (this.$route.params.page === 'all') {
+        this.fetchData(this.getQuery);
+      } else {
+        this.fetchData(`page=${this.$route.params.page}&${this.getQuery}`);
+      }
+    },
+    ...mapActions({
+      fetchData: 'catalog/fetchData',
+      setSearch: 'catalog/setConfigSearch',
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      getQuery: 'catalog/getQuery',
+    }),
   },
 };
 </script>

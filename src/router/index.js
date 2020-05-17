@@ -22,11 +22,11 @@ const routes = [
     props: true,
     component: () => import('@/views/Single.vue'),
   },
-  // {
-  //   path: '/cart',
-  //   name: 'Cart',
-  //   component: () => import('@/views/Cart.vue'),
-  // },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import('@/views/Cart.vue'),
+  },
 ];
 
 const router = new VueRouter({

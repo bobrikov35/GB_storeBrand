@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import Slider from '@/components/single/Slider.vue';
 import Description from '@/components/single/Description.vue';
@@ -24,12 +24,20 @@ export default {
   },
   methods: {
     init() {
+      document.querySelector('.search__field').value = '';
+      this.setSearch([]);
       this.fetchProduct(this.$route.params.id);
       this.fetchCatalog('sortBy={"sold": "desc"}&quantity=4');
     },
     ...mapActions({
       fetchCatalog: 'catalog/fetchData',
       fetchProduct: 'product/fetchData',
+      setSearch: 'catalog/setConfigSearch',
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      getQuery: 'catalog/getQuery',
     }),
   },
   watch: {

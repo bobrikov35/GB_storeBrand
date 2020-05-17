@@ -21,25 +21,10 @@ export default {
   },
   methods: {
     updateData() {
-      const categories = [];
-      const brands = [];
-      const colors = [];
-      if (this.categories) {
-        this.categories.forEach((el) => {
-          for (let i = 0; i < el.categories.length; i++) {
-            if (el.categories[i].flag) categories.push(el.type + el.categories[i].title);
-          }
-        });
-      }
-      if (this.brands) this.brands.forEach((el) => { if (el.flag) brands.push(el.title); });
-      if (this.colors) this.colors.forEach((el) => { if (el.flag) colors.push(el.value); });
-      let query = categories.length > 0 ? `categories=${JSON.stringify(categories)}` : '';
-      query += brands.length > 0 ? `&brands=${JSON.stringify(brands)}` : '';
-      query += colors.length > 0 ? `&colors=${JSON.stringify(colors)}` : '';
       if (this.$route.params.page === 'all') {
-        this.fetchData(query);
+        this.fetchData(this.getQuery);
       } else {
-        this.fetchData(`page=${this.$route.params.page}&${query}`);
+        this.fetchData(`page=${this.$route.params.page}&${this.getQuery}`);
       }
     },
     ...mapActions({
@@ -48,6 +33,8 @@ export default {
   },
   computed: {
     ...mapGetters({
+      getQuery: 'catalog/getQuery',
+      searchList: 'catalog/getSearchList',
       categories: 'catalog/getConfigCategories',
       brands: 'catalog/getConfigBrands',
       colors: 'catalog/getConfigColors',

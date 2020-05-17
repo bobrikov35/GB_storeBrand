@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import Sidebar from '@/components/catalog/Sidebar.vue';
 import Filtering from '@/components/catalog/Filtering.vue';
@@ -37,13 +37,14 @@ export default {
   methods: {
     init() {
       if (this.$route.params.page === 'all') {
-        this.fetchData('');
+        this.fetchData(this.getQuery);
       } else {
-        this.fetchData(`page=${this.$route.params.page}`);
+        this.fetchData(`page=${this.$route.params.page}&${this.getQuery}`);
       }
     },
     ...mapActions({
       fetchData: 'catalog/fetchData',
+      setSearch: 'catalog/setConfigSearch',
     }),
   },
   computed: {
@@ -65,6 +66,9 @@ export default {
         default: return 'Полный каталог';
       }
     },
+    ...mapGetters({
+      getQuery: 'catalog/getQuery',
+    }),
   },
   watch: {
     '$route.params.page': 'init',
